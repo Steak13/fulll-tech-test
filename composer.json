@@ -1,0 +1,12 @@
+{
+    "name": "user/fulll-tech-test",
+    "authors": [
+        {
+            "name": "Victor P",
+            "email": "victor.pollet@inetum.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
