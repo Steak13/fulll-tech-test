@@ -4,33 +4,33 @@ namespace Backend\Domain;
 
 class Location
 {
-    /** @var string $lat */
-    private string $lat;
-    /** @var string $long */
-    private string $long;
+    /** @var float $lat */
+    private float $lat;
+    /** @var float $long */
+    private float $long;
 
     /**
-     * @param string $lat
-     * @param string $long
+     * @param float $lat
+     * @param float $long
      */
-    public function __construct(string $lat, string $long)
+    public function __construct(float $lat, float $long)
     {
         $this->lat = $lat;
         $this->long = $long;
     }
 
     /**
-     * @return string
+     * @return float
      */
-    public function getLat(): string
+    public function getLat(): float
     {
         return $this->lat;
     }
 
     /**
-     * @return string
+     * @return float
      */
-    public function getLong(): string
+    public function getLong(): float
     {
         return $this->long;
     }
