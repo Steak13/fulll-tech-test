@@ -1,8 +1,6 @@
 <?php
 
-namespace Backend\Domain;
-
-include_once dirname(__DIR__). '/Domain/Vehicle.php';
+namespace Domain;
 
 class Fleet
 {

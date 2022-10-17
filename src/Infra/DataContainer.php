@@ -1,12 +1,9 @@
 <?php
 
-namespace Backend\Infra;
+namespace Infra;
 
-include_once dirname(__DIR__). '/Domain/Fleet.php';
-include_once dirname(__DIR__). '/Domain/Vehicle.php';
-
-use Backend\Domain\Fleet;
-use Backend\Domain\Vehicle;
+use Domain\Fleet;
+use Domain\Vehicle;
 
 class DataContainer
 {

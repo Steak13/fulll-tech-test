@@ -1,17 +1,11 @@
 <?php
 
-namespace Backend\App;
+namespace App;
 
-include_once dirname(__DIR__). '/../../Backend/PHP/Boilerplate/src/App/VehicleLocator.php';
-include_once dirname(__DIR__). '/../../Backend/PHP/Boilerplate/src/Infra/DataContainer.php';
-include_once dirname(__DIR__). '/../../Backend/PHP/Boilerplate/src/Domain/Location.php';
-include_once dirname(__DIR__). '/../../Backend/PHP/Boilerplate/src/Domain/Fleet.php';
-include_once dirname(__DIR__). '/../../Backend/PHP/Boilerplate/src/Domain/Vehicle.php';
-
-use Backend\Domain\Fleet;
-use Backend\Domain\Location;
-use Backend\Domain\Vehicle;
-use Backend\Infra\DataContainer;
+use Domain\Fleet;
+use Domain\Location;
+use Domain\Vehicle;
+use Infra\DataContainer;
 use LogicException;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;

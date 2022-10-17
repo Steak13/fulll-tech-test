@@ -1,12 +1,9 @@
 <?php
 
-namespace Backend\App;
+namespace App;
 
-include_once dirname(__DIR__). '/../../Backend/PHP/Boilerplate/src/App/VehicleRegisterer.php';
-include_once dirname(__DIR__). '/../../Backend/PHP/Boilerplate/src/Infra/DataContainer.php';
-
-use Backend\Domain\Fleet;
-use Backend\Infra\DataContainer;
+use Domain\Fleet;
+use Infra\DataContainer;
 use LogicException;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;

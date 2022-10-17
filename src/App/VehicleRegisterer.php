@@ -1,11 +1,8 @@
 <?php
 
-namespace Backend\App;
+namespace App;
 
-include_once dirname(__DIR__). '/Domain/Vehicle.php';
-include_once dirname(__DIR__). '/App/AbstractDataContainerAccessor.php';
-
-use Backend\Domain\Vehicle;
+use Domain\Vehicle;
 use LogicException;
 use RuntimeException;
 

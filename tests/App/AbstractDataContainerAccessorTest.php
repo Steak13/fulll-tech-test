@@ -1,14 +1,10 @@
 <?php
 
-namespace Backend\App;
+namespace App;
 
-include_once dirname(__DIR__). '/../../Backend/PHP/Boilerplate/src/App/AbstractDataContainerAccessor.php';
-include_once dirname(__DIR__). '/../../Backend/PHP/Boilerplate/src/Domain/Fleet.php';
-include_once dirname(__DIR__). '/../../Backend/PHP/Boilerplate/src/Domain/Vehicle.php';
-
-use Backend\Domain\Fleet;
-use Backend\Domain\Vehicle;
-use Backend\Infra\DataContainer;
+use Domain\Fleet;
+use Domain\Vehicle;
+use Infra\DataContainer;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
 

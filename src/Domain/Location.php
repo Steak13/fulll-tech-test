@@ -1,6 +1,6 @@
 <?php
 
-namespace Backend\Domain;
+namespace Domain;
 
 class Location
 {

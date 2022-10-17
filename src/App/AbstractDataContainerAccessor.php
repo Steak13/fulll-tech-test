@@ -1,14 +1,10 @@
 <?php
 
-namespace Backend\App;
+namespace App;
 
-include_once dirname(__DIR__). '/Domain/Fleet.php';
-include_once dirname(__DIR__). '/Domain/Vehicle.php';
-include_once dirname(__DIR__). '/Infra/DataContainer.php';
-
-use Backend\Domain\Fleet;
-use Backend\Domain\Vehicle;
-use Backend\Infra\DataContainer;
+use Domain\Fleet;
+use Domain\Vehicle;
+use Infra\DataContainer;
 use RuntimeException;
 
 class AbstractDataContainerAccessor

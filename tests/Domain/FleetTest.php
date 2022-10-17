@@ -1,9 +1,6 @@
 <?php
 
-namespace Backend\Domain;
-
-include_once dirname(__DIR__). '/../../Backend/PHP/Boilerplate/src/Domain/Fleet.php';
-include_once dirname(__DIR__). '/../../Backend/PHP/Boilerplate/src/Domain/Vehicle.php';
+namespace Domain;
 
 use PHPUnit\Framework\TestCase;
 
