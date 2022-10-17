@@ -29,13 +29,6 @@ class VehicleLocatorTest extends TestCase
         $this->database->removeFleetFromId(self::FLEETID);
     }
 
-    public function testVehicleNotInFleet()
-    {
-        $locator = new VehicleLocator();
-        $this->expectException(RuntimeException::class);
-        $locator->register(self::FLEETID, self::PLATEID, self::FLOAT, self::FLOAT);
-    }
-
     public function testVehicleHasNoNewLocation()
     {
         $vehicle = new Vehicle(self::PLATEID);
@@ -48,7 +41,7 @@ class VehicleLocatorTest extends TestCase
 
         $locator = new VehicleLocator();
         $this->expectException(LogicException::class);
-        $locator->register(self::FLEETID, self::PLATEID, self::FLOAT, self::FLOAT);
+        $locator->register(self::PLATEID, self::FLOAT, self::FLOAT);
     }
 
     public function testRegisterNewVehicleLocation()
@@ -61,7 +54,7 @@ class VehicleLocatorTest extends TestCase
         $this->database->persistFleet($fleet);
 
         $locator = new VehicleLocator();
-        $locator->register(self::FLEETID, self::PLATEID, self::FLOAT, self::FLOAT);
+        $locator->register(self::PLATEID, self::FLOAT, self::FLOAT);
         $location = $this->database->getVehicleById(self::PLATEID)->getLocation();
         $this->assertNotNull($location);
     }

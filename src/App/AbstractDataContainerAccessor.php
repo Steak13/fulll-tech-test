@@ -63,4 +63,13 @@ class AbstractDataContainerAccessor
     {
         $this->dataContainer->persistFleet($fleet);
     }
+
+    /**
+     * @param Vehicle $vehicle
+     * @return void
+     */
+    protected function updateVehicle(Vehicle $vehicle): void
+    {
+        $this->dataContainer->persistVehicle($vehicle);
+    }
 }
