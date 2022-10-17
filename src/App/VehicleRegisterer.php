@@ -11,6 +11,8 @@ class VehicleRegisterer extends AbstractDataContainerAccessor
     /**
      * @param string $fleetId
      * @param string $vehiclePlate
+     * @throws LogicException
+     * @throws RuntimeException
      * @return void
      */
     public function register(string $fleetId, string $vehiclePlate): void

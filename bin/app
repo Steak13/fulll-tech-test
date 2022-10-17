@@ -5,10 +5,12 @@
 require __DIR__.'/../vendor/autoload.php';
 
 use App\Command\RegisterFleetCommand;
+use App\Command\RegisterVehicleCommand;
 use Symfony\Component\Console\Application;
 
 $application = new Application();
 
 $application->add(new RegisterFleetCommand());
+$application->add(new RegisterVehicleCommand());
 
 $application->run();

@@ -15,13 +15,15 @@ class FleetCreatorTest extends TestCase
         $database = DataContainer::getInstance();
         $fleet = $database->getFleetById($fleetId);
         $this->assertNotNull($fleet);
+        DataContainer::getInstance()->removeFleetFromId($fleetId);
     }
 
     public function testFleetAlreadyExistsForUser()
     {
         $creator = new FleetCreator();
-        $creator->create('userId');
+        $fleetId = $creator->create('userId');
         $this->expectException(LogicException::class);
         $creator->create('userId');
+        DataContainer::getInstance()->removeFleetFromId($fleetId);
     }
 }
