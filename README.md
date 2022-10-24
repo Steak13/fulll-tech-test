@@ -13,6 +13,8 @@ Afin d'être fonctionnelle, l'application doit être installée via les commande
 
 `composer install`
 
+`php bin/doctrine orm:schema-tool:create`
+
 ## Usage
 
 L'application permet la gestion de flottes de véhicules et de leurs positions pour des usagers.
