@@ -2,11 +2,28 @@
 
 namespace Domain;
 
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity()
+ */
 class Fleet
 {
-    /** @var string $fleetId */
+    /**
+     * @ORM\Id()
+     * @ORM\Column(type="string")
+     * @var string $fleetId
+     */
+
     private string $fleetId;
-    /** @var Vehicle[] $vehicles */
+    /**
+     * @ORM\ManyToMany(targetEntity="Vehicle")
+     * @ORM\JoinTable(
+     *     joinColumns={@ORM\JoinColumn(name="fleetId", referencedColumnName="fleetId")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="vehiclePlate", referencedColumnName="plateNumber")}
+     *     )
+     * @var Vehicle[] $vehicles
+     */
     private array $vehicles = [];
 
     /**

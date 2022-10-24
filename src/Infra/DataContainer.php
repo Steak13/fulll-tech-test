@@ -2,6 +2,7 @@
 
 namespace Infra;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Domain\Fleet;
 use Domain\Vehicle;
 
@@ -9,10 +10,6 @@ class DataContainer
 {
     /** @var DataContainer|null $instance */
     private static ?DataContainer $instance = null;
-    /** @var Fleet[] $fleets */
-    private array $fleets = [];
-    /** @var Vehicle[] $vehicles */
-    private array $vehicles = [];
 
     private function __construct() {}
 
@@ -33,17 +30,16 @@ class DataContainer
      */
     public function persistFleet(Fleet $fleet): void
     {
-        $fleetId = $fleet->getFleetId();
-        $this->fleets[$fleetId] = $fleet;
+        $this->getEntityManager()->persist($fleet);
     }
 
     /**
      * @param string $id
      * @return Fleet|null
      */
-    public function getFleetById(string $id): ?Fleet
+    public function getFleetById(string $id): object
     {
-        return $this->fleets[$id] ?? null;
+        return $this->getEntityManager()->find(Fleet::class, $id);
     }
 
     /**
@@ -52,7 +48,8 @@ class DataContainer
      */
     public function removeFleetFromId(string $id): void
     {
-        unset($this->fleets[$id]);
+        $fleet = $this->getEntityManager()->find(Fleet::class, $id);
+        $this->getEntityManager()->remove($fleet);
     }
 
     /**
@@ -61,21 +58,33 @@ class DataContainer
      */
     public function persistVehicle(Vehicle $vehicle): void
     {
-        $vehicleId = $vehicle->getPlateNumber();
-        $this->vehicles[$vehicleId] = $vehicle;
+        $this->getEntityManager()->persist($vehicle);
     }
 
     /**
      * @param string $id
      * @return Vehicle|null
      */
-    public function getVehicleById(string $id): ?Vehicle
+    public function getVehicleById(string $id): object
     {
-        return $this->vehicles[$id] ?? null;
+        return $this->getEntityManager()->find(Vehicle::class, $id);
     }
 
+    /**
+     * @param string $id
+     * @return void
+     */
     public function removeVehicleFromId(string $id): void
     {
-        unset($this->vehicles[$id]);
+        $vehicle = $this->getEntityManager()->find(Vehicle::class, $id);
+        $this->getEntityManager()->remove($vehicle);
+    }
+
+    /**
+     * @return EntityManagerInterface
+     */
+    private function getEntityManager(): EntityManagerInterface
+    {
+        return $GLOBALS['APP']['ENTITY_MANAGER'];
     }
 }

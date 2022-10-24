@@ -2,11 +2,24 @@
 
 namespace Domain;
 
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity()
+ */
 class Vehicle
 {
-    /** @var string $plateNumber */
+    /**
+     * @ORM\Id()
+     * @ORM\Column(type="string")
+     * @var string $plateNumber
+     */
     private string $plateNumber;
-    /** @var Location|null $location */
+
+    /**
+     * @ORM\OneToOne(targetEntity="Location")
+     * @var Location|null $location
+     */
     private ?Location $location = null;
 
     /**

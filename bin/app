@@ -2,14 +2,15 @@
 
 <?php
 
-require __DIR__.'/../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../config/doctrine_setup.php';
 
 use App\Command\LocalizeVehicleCommand;
 use App\Command\RegisterFleetCommand;
 use App\Command\RegisterVehicleCommand;
 use Symfony\Component\Console\Application;
 
-$application = new Application();
+$application = new Application('FleetManager', 1.0);
 
 $application->add(new RegisterFleetCommand());
 $application->add(new RegisterVehicleCommand());

@@ -2,11 +2,31 @@
 
 namespace Domain;
 
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity()
+ */
 class Location
 {
-    /** @var float $lat */
+    /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     * @var int $id
+     */
+    private int $id;
+
+    /**
+     * @ORM\Column(type="float")
+     * @var float $lat
+     */
     private float $lat;
-    /** @var float $long */
+
+    /**
+     * @ORM\Column(type="float")
+     * @var float $long
+     */
     private float $long;
 
     /**
@@ -17,6 +37,14 @@ class Location
     {
         $this->lat = $lat;
         $this->long = $long;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
     }
 
     /**
